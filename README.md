@@ -1,0 +1,2 @@
+# FacturaDesktopEcuadorYomar
+Java Desktop APP
