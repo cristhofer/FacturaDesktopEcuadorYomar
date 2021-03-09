@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="FacturaDesktopEcuadorPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.ecuasis.facturadesktopecuador.modelo.servidor.empresa.Empresa</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.Documento</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.DocumentosRecibidos</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.Usuario</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.Auditoria</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.Formato</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.Permiso</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.Establecimiento</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.TipoAmbiente</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.UsuarioRol</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.TipoDocumento</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.Telefono</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.Rol</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.Procesos</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.FormatoEmp</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.VewFormatoEmpresa</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.ViewDocumento</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.Configuracion</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.TipoIdentificacion</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.PermisoRol</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.EstadoComprobante</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.PuntoEmision</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.ViewPermisos</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.Empresa</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.TipoEmision</class>
+    <!-- Línea agregada por CJTM -->
+    <class>facturadesktopecuadoryomar.modelo.servidor.TipoAgente</class>
+    <!-- Fin línea agregada por CJTM -->
+    <shared-cache-mode>NONE</shared-cache-mode>
+    <class>facturadesktopecuadoryomar.modelo.servidor.MovimientoDocumento</class>
+    <class>facturadesktopecuadoryomar.modelo.servidor.Notificacion</class>
+    <!-- Línea agregada por CJTM -->
+    <class>facturadesktopecuadoryomar.modelo.servidor.EtiquetaAdicional</class>
+    <!-- Fin línea agregada por CJTM -->
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://192.168.50.11\SQLEXPRESS;databaseName=facturawebyomar"/>
+      <property name="javax.persistence.jdbc.user" value="sa"/>
+      <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+      <property name="javax.persistence.jdbc.password" value="abc!123"/>
+    </properties>
+  </persistence-unit>
+  <persistence-unit name="ModeloFaePU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>oracle.fe.modelo.VwTbRetencionProdcutores2</class>
+    <class>oracle.fe.modelo.VwIgFacturaRmbXml2</class>
+    <class>oracle.fe.modelo.VwIgRetencionXml2</class>
+    <class>oracle.fe.modelo.VwIgFacturaNdXml2</class>
+    <class>oracle.fe.modelo.VwBrGuiaXml2</class>
+    <class>oracle.fe.modelo.VwBrDetalleTransaccion2</class>
+    <class>oracle.fe.modelo.VwIgFacturaXml2</class>
+    <class>oracle.fe.modelo.VwIgFacturaExportacion2</class>
+    <class>oracle.fe.modelo.Documentsync</class>
+    <class>oracle.fe.modelo.VwIgFactFpsri2</class>
+    <class>oracle.fe.modelo.VwIgFacturaNcXml2</class>
+    <class>oracle.fe.modelo.FacturacionIntermedia</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@//192.168.51.12:1521/PALMAR"/>
+      <property name="javax.persistence.jdbc.user" value="USUARIO_FE"/>
+      <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+      <property name="javax.persistence.jdbc.password" value="palmar2017"/>
+    </properties>
+  </persistence-unit>
+</persistence>
