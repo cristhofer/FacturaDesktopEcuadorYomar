@@ -38,10 +38,19 @@
     <!-- Fin línea agregada por CJTM -->
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
+        <!--original produccion-->
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://192.168.50.11\SQLEXPRESS;databaseName=facturawebyomar"/>
       <property name="javax.persistence.jdbc.user" value="sa"/>
       <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
       <property name="javax.persistence.jdbc.password" value="abc!123"/>
+        <!--original produccion-->
+        
+        <!--desarrollo-->
+      <!--<property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://192.168.50.36\SQLEXPRESS;databaseName=facturawebyomar"/>
+      <property name="javax.persistence.jdbc.user" value="sa"/>
+      <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+      <property name="javax.persistence.jdbc.password" value="tapia_2020"/>-->
+        <!--desarrollo-->
     </properties>
   </persistence-unit>
   <persistence-unit name="ModeloFaePU" transaction-type="RESOURCE_LOCAL">
@@ -60,7 +69,13 @@
     <class>oracle.fe.modelo.FacturacionIntermedia</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
+        <!--original produccion-->
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@//192.168.51.12:1521/PALMAR"/>
+      <!--original produccion-->
+      
+      <!--desarrollo-->
+      <!--<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@//192.168.50.8:1521/PALMAR"/>-->
+      <!--desarrollo-->
       <property name="javax.persistence.jdbc.user" value="USUARIO_FE"/>
       <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
       <property name="javax.persistence.jdbc.password" value="palmar2017"/>

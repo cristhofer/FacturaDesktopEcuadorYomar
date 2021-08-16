@@ -69,6 +69,7 @@ public class XmlSriFactura extends XmlSriAbstratc {
       this.informacionAdicional.add("direccion");
       this.informacionAdicional.add(direccion);
             
+      /*CJTM COMENTADO 02/08/2021
       for (
         EtiquetaAdicional etiquetaAdicional : this.empresa.getEtiquetaList()
       ) {
@@ -81,7 +82,7 @@ public class XmlSriFactura extends XmlSriAbstratc {
           etiquetaAdicional.getTipoAgente()
                             .getLeyendaTipoAgente()
         );
-      }
+      }*/
 
       sb.append(
         getInfoAdicional(

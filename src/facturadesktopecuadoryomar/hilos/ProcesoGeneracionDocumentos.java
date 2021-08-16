@@ -81,10 +81,10 @@ public class ProcesoGeneracionDocumentos {
                                 .getCodigoTico(), 
               x.getDescripcionDoc()
       );
-      System.out.println("DOCUMENTO A PROCESAR : " + x.toString());
+      System.out.println("DOCUMENTO A PROCESAR : ".concat(x.toString()));
       if (permite) {
         System.out.println(
-            "DOCUMENTO SI PERMITE PROCESAR : " + x.getNumeroDocumento()
+            "DOCUMENTO SI PERMITE PROCESAR : ".concat(x.getNumeroDocumento())
         );
         Documento felec = new Documento();
         MovimientoDocumento mov = getMovimiento(felec, "CREACION", "");
@@ -138,13 +138,13 @@ public class ProcesoGeneracionDocumentos {
             this.tipoDocFacade.buscarPorCodigo(x.getTipoDoc()).getCodigoTico()
           );
           mov.setObservacion(
-            "ESTADO: " + felec.getEstadoDocu() + ", Observación: " 
-            + ex.getMessage()
+            "ESTADO: ".concat(felec.getEstadoDocu()).concat(", Observación: ") 
+            .concat(ex.getMessage())
           );
           
           Notificacion noti = new Notificacion(
             "Devuelta por el Sistema", "Se ha devuelto el documento " 
-            + felec.getNumeroDocu(), ""
+            .concat(felec.getNumeroDocu()), ""
           );
           noti.setCodigoSafpro(felec.getCuentaClienteDocu());
           noti.setTipoSafpro(felec.getTipoDocuCliente());
@@ -189,8 +189,8 @@ public class ProcesoGeneracionDocumentos {
             );
             felec.setObservacionDocu(ex.getMessage());
             mov.setObservacion(
-                "ESTADO: " + felec.getEstadoDocu() + ", Observación: " 
-                + ex.getMessage()
+                "ESTADO: ".concat(felec.getEstadoDocu())
+                .concat(", Observación: ").concat(ex.getMessage())
             );
             Logger.getLogger(
                 NuevoDocumento.class.getName()).log(Level.SEVERE, null, ex
@@ -199,7 +199,7 @@ public class ProcesoGeneracionDocumentos {
             
             Notificacion noti = new Notificacion(
                 "Devuelta por el Sistema", "Se ha devuelto el documento " 
-                + felec.getNumeroDocu(), ""
+                .concat(felec.getNumeroDocu()), ""
             );
             noti.setCodigoSafpro(felec.getCuentaClienteDocu());
             noti.setTipoSafpro(felec.getTipoDocuCliente());
@@ -223,8 +223,8 @@ public class ProcesoGeneracionDocumentos {
           } else {
             if (felec.getEstadoDocu().equals("AUTORIZADO")) {
               mov.setObservacion(
-                "ESTADO: " + felec.getEstadoDocu() 
-                + ", Observación: Se ha creado sin ningún inconveniente"
+                "ESTADO: ".concat(felec.getEstadoDocu()) 
+                .concat(", Observación: Se ha creado sin ningún inconveniente")
               );
             }
             this.documentoLogica.guardar(felec, emp);
@@ -240,7 +240,7 @@ public class ProcesoGeneracionDocumentos {
         }
       } else {
         System.out.println(
-            "DOCUMENTO NO PERMITE PROCESAR : " + x.getNumeroDocumento()
+            "DOCUMENTO NO PERMITE PROCESAR : ".concat(x.getNumeroDocumento())
         );
       }
     } 
@@ -260,13 +260,14 @@ public class ProcesoGeneracionDocumentos {
       if (permite) {
         MovimientoDocumento mov = getMovimiento(x, "FIRMADO", "");
         System.out.println(
-            "EL DOCUMENTO A FIRMAR ES :" + x.getClaveAccesoDocu()
+            "EL DOCUMENTO A FIRMAR ES :".concat(x.getClaveAccesoDocu())
         );
         
         if (x.getXmlFirmDocu() != null && x.getFirmadoDocu() == false) {
           String tmp = this.config.getUrlTemporalConf();
           File archivoXML = new File(
-            tmp + File.separator + x.getClaveAccesoDocu() + ".xml"
+            tmp.concat(File.separator).concat(x.getClaveAccesoDocu())
+            .concat(".xml")
           );
           
           if (!archivoXML.exists()) {
@@ -292,20 +293,22 @@ public class ProcesoGeneracionDocumentos {
             Thread.sleep(1000l);
             xmlFirmado = this.firmar.firmar(
                 archivoXML.getAbsolutePath(), 
-                this.config.getUrlFirmasConf() + File.separator 
-                                               + this.empresa.getFirmaEmpr(), 
+                this.config.getUrlFirmasConf().concat(File.separator) 
+                    .concat(this.empresa.getFirmaEmpr()), 
                 this.empresa.getClaveFirmaEmpr(), 
                 tmp, 
-                x.getClaveAccesoDocu() + "firmado.XML"
+                x.getClaveAccesoDocu().concat("firmado.XML")
             );
             Thread.sleep(1000l);
           } catch (IOException ex) {
-            mov.setObservacion("No se ha encontrado la FIRMA" + ex.getMessage());
+            mov.setObservacion(
+                "No se ha encontrado la FIRMA".concat(ex.getMessage())
+            );
           }
           catch (TransformerException ex) {
             mov.setObservacion(
                 "No se ha podido embeber la frma en el documento la FIRMA: " 
-                + ex.getMessage()
+                .concat(ex.getMessage())
             );
           
           }
@@ -321,11 +324,13 @@ public class ProcesoGeneracionDocumentos {
             Logger.getLogger(FirmarDocumento.class
                 .getName()).log(Level.SEVERE, null, ex);
             mov.setObservacion(
-                "Error al convertir información : " + ex.getMessage()
+                "Error al convertir información : ".concat(ex.getMessage())
             );
           }
           catch (CertificateException ex) {
-            mov.setObservacion("Error en el certficado: " + ex.getMessage());
+            mov.setObservacion(
+                "Error en el certficado: ".concat(ex.getMessage())
+            );
             Logger.getLogger(FirmarDocumento.class
                 .getName()).log(Level.SEVERE, null, ex);
           } 
@@ -335,7 +340,7 @@ public class ProcesoGeneracionDocumentos {
           catch (TransformerException ex) {
             mov.setObservacion(
                 "Error al tratar de cnvertir en string xml firmado: " 
-                + ex.getMessage()
+                .concat(ex.getMessage())
             );
             Logger.getLogger(FirmarDocumento.class.getName())
                   .log(Level.SEVERE, null, ex);
@@ -347,7 +352,7 @@ public class ProcesoGeneracionDocumentos {
           }
           catch (SQLException ex) {
             mov.setObservacion(
-                "Error a modificar documento en SQL: " + ex.getMessage()
+                "Error a modificar documento en SQL: ".concat(ex.getMessage())
             );
             Logger.getLogger(FirmarDocumento.class.getName())
                   .log(Level.SEVERE, null, ex);
@@ -372,7 +377,9 @@ public class ProcesoGeneracionDocumentos {
     if (this.listaDocumentos.size() > 0) {
       for (Documento x : this.listaDocumentos) {
         MovimientoDocumento mov = getMovimiento(x, "ACT_CLIENTE", "");
-        System.err.println("DOCUMENTO A PROCESAR--: " + x.getCodigoDocu());
+        System.err.println(
+            "DOCUMENTO A PROCESAR--: ".concat(x.getCodigoDocu().toString())
+        );
         try {
           int error = 0;
           this.datos.actualizarCliente(x, 1);
@@ -381,8 +388,8 @@ public class ProcesoGeneracionDocumentos {
           } else {
             x.setEstadoClienteDocu("X");
             mov.setObservacion(
-                "Ha sucedido un inconveniente al "
-                + "tratar de actualizar en el cliente."
+                "Ha sucedido un inconveniente al tratar de actualizar en el "
+                .concat("cliente.")
             );
           } 
           this.documentoLogica.modificar(x);
@@ -405,7 +412,7 @@ public class ProcesoGeneracionDocumentos {
         MovimientoDocumento mov = getMovimiento(x, "ACT_CLIENTE_AUT", "");
         System.err.println(
             "DOCUMENTO A PROCESAR A ACTUALIZAR AUTORIZADO  --: " 
-            + x.getCodigoDocu()
+            .concat(x.getCodigoDocu().toString())
         );
         
         try {
@@ -420,8 +427,8 @@ public class ProcesoGeneracionDocumentos {
           } else {
             x.setEstadoClienteDocu("X");
             mov.setObservacion(
-                "Ha sucedido un inconveniente al tratar "
-                + "de actualizar en el cliente el doc. autorizado"
+                "Ha sucedido un inconveniente al tratar de actualizar en el "
+                .concat("cliente el doc. autorizado")
             );
           }
           
@@ -451,7 +458,7 @@ public class ProcesoGeneracionDocumentos {
         MovimientoDocumento mov = getMovimiento(doc, "CORREO", "");
         System.out.println(
             "*********************INICIO DE ENVIO DE CORREOS A:" 
-            + x.getCorreoDocu() + " ************************"
+            .concat(x.getCorreoDocu()).concat(" ************************")
         );
         
         if (x.getCorreoDocu() != null) {
@@ -477,7 +484,7 @@ public class ProcesoGeneracionDocumentos {
             } catch (Exception ex) {
               doc.setEstadoCorreoDocu("NO_ENVIADO");
               mov.setObservacion(
-                "El correo no se ha podido enviar." + ex.getMessage()
+                "El correo no se ha podido enviar.".concat(ex.getMessage())
               );
               
               try {
@@ -488,7 +495,7 @@ public class ProcesoGeneracionDocumentos {
               }
               Logger.getLogger(EnviarCorreo.class.getName())
                     .log(Level.SEVERE, null, ex);
-              mov.setObservacion("Error: " + ex.getMessage());
+              mov.setObservacion("Error: ".concat(ex.getMessage()));
             }
             
             try {
@@ -500,7 +507,7 @@ public class ProcesoGeneracionDocumentos {
             }
           } else {
             mov.setObservacion("No tiene correos disponibles para enviar.");
-            System.err.println("NO HAY CORREO: " + x.getCorreoUsua());
+            System.err.println("NO HAY CORREO: ".concat(x.getCorreoUsua()));
           } 
         } else {
           mov.setObservacion("No tiene correos disponibles para enviar.");

@@ -74,7 +74,7 @@ public class XmlSriGuiaRemision
       this.informacionAdicional.add("email");
       this.informacionAdicional.add(correo);
       
-      for (
+      /*for (
         EtiquetaAdicional etiquetaAdicional : this.empresa.getEtiquetaList()
       ) {
         this.informacionAdicional.add(
@@ -86,7 +86,7 @@ public class XmlSriGuiaRemision
           etiquetaAdicional.getTipoAgente()
                             .getLeyendaTipoAgente()
         );
-      }
+      }*/
 
       sb.append(
         getInfoAdicional(

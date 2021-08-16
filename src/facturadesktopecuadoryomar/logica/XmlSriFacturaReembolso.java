@@ -74,6 +74,7 @@ public class XmlSriFacturaReembolso
       this.informacionAdicional.add("direccion");
       this.informacionAdicional.add(direccion);
       
+      /*COMENTADO CJTM 02/08/2021
       for (
         EtiquetaAdicional etiquetaAdicional : this.empresa.getEtiquetaList()
       ) {
@@ -86,7 +87,7 @@ public class XmlSriFacturaReembolso
           etiquetaAdicional.getTipoAgente()
                             .getLeyendaTipoAgente()
         );
-      }
+      }*/
 
       sb.append(
         getInfoAdicional(

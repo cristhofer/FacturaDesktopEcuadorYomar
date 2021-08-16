@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/ctapia/Documents/FacturaDesktopEcuadorYomar/src/facturadesktopecuadoryomar/logica/AbstractFacade.java</file>
+            <file>file:/C:/Users/ctapia/Documents/FacturaDesktopEcuadorYomar/src/META-INF/persistence.xml</file>
+            <file>file:/C:/Users/ctapia/Documents/FacturaDesktopEcuadorYomar/src/facturadesktopecuadoryomar/ProcesoFacturacion.java</file>
+            <file>file:/C:/Users/ctapia/Documents/FacturaDesktopEcuadorYomar/src/oracle/fe/logica/FacturacionIntermediaFacade.java</file>
+            <file>file:/C:/Users/ctapia/Documents/FacturaDesktopEcuadorYomar/src/facturadesktopecuadoryomar/logica/EmpresaFacade.java</file>
+            <file>file:/C:/Users/ctapia/Documents/FacturaDesktopEcuadorYomar/src/facturadesktopecuadoryomar/hilos/ProcesoGeneracionDocumentos.java</file>
+            <file>file:/C:/Users/ctapia/Documents/FacturaDesktopEcuadorYomar/src/oracle/fe/modelo/FacturacionIntermedia.java</file>
+            <file>file:/C:/Users/ctapia/Documents/FacturaDesktopEcuadorYomar/src/facturadesktopecuadoryomar/modelo/servidor/Empresa.java</file>
+        </group>
     </open-files>
 </project-private>

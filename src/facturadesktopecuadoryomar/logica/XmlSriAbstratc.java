@@ -6,6 +6,7 @@ import facturadesktopecuadoryomar.excepciones.FormatoCargaException;
 import facturadesktopecuadoryomar.modelo.servidor.Configuracion;
 import facturadesktopecuadoryomar.modelo.servidor.Documento;
 import facturadesktopecuadoryomar.modelo.servidor.Empresa;
+import facturadesktopecuadoryomar.modelo.servidor.EtiquetaAdicional;
 import facturadesktopecuadoryomar.modelo.servidor.TipoDocumento;
 import facturadesktopecuadoryomar.modelo.servidor.Usuario;
 import facturadesktopecuadoryomar.modelo.servidor.UsuarioRol;
@@ -126,6 +127,18 @@ public abstract class XmlSriAbstratc {
     sb.append(XmlBuilder.createTag("ptoEmi", this.carga.getPtoEmi()));
     sb.append(XmlBuilder.createTag("secuencial", this.decimalFormat.format(Integer.parseInt(this.carga.getNumFact()))));
     sb.append(XmlBuilder.createTag("dirMatriz", this.empresaFacade.buscarEstablecimientoMatriz(this.empresa).getDireccionEstab()));
+    
+    /*AGREGADO CJTM 04/08/2021*/
+    for (EtiquetaAdicional etiquetaAdicional : this.empresa.getEtiquetaList()) {
+        sb.append(
+            XmlBuilder.createTag(
+                etiquetaAdicional.getTipoAgente().getEtiquetaTipoAgente(), 
+                etiquetaAdicional.getTipoAgente().getLeyendaTipoAgente()
+            )
+        );
+    }
+    /*AGREGADO CJTM 04/08/2021*/
+    
     sb.append(XmlBuilder.createCloseTag("infoTributaria"));
     return sb.toString().trim();
   }

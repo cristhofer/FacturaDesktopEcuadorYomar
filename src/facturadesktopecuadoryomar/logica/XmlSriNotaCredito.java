@@ -78,7 +78,7 @@ public class XmlSriNotaCredito extends XmlSriAbstratc {
       this.informacionAdicional.add("direccion");
       this.informacionAdicional.add(direccion);
       
-      for (
+      /*for (
         EtiquetaAdicional etiquetaAdicional : this.empresa.getEtiquetaList()
       ) {
         this.informacionAdicional.add(
@@ -90,7 +90,7 @@ public class XmlSriNotaCredito extends XmlSriAbstratc {
           etiquetaAdicional.getTipoAgente()
                             .getLeyendaTipoAgente()
         );
-      }
+      }*/
 
       sb.append(
         getInfoAdicional(

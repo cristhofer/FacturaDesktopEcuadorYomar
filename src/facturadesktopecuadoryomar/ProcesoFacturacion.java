@@ -25,17 +25,20 @@ public class ProcesoFacturacion {
         EmpresaFacade empresaFacade = new EmpresaFacade();
         ProcesoGeneracionDocumentos pgd = new ProcesoGeneracionDocumentos();
         int contadorProcesos = 0;
+        
         while (true) {
             for (Empresa emp : empresaFacade.listaEmpresas()) {
                 if (emp.getEstadoServicioEmpr()) {
                     System.out.println(
-                            "EL PROCESO SE HA EJECUTADO " + contadorProcesos 
-                            + " VECES"
+                        "EL PROCESO SE HA EJECUTADO "
+                        .concat(String.valueOf(contadorProcesos))
+                        .concat(" VECES")
                     );
                     pgd.generarDocumentosCliente(emp);
                     pgd.firmarDocumentos(emp);
                     pgd.enviarDocumentosAutorizadosCliente();
                     pgd.enviarCorreos(emp);
+                    
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException ex) {
